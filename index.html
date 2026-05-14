@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>ExpenseFlow | Daily Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="header">
+            <div class="title-section">
+                <h1>ExpenseFlow</h1>
+                <p>Track, manage & analyze daily spending — offline first</p>
+            </div>
+            <div class="stats-row" id="statsPanel">
+                <div class="stat-card">
+                    <span class="stat-label">Total spent</span>
+                    <span class="stat-number" id="totalAmount">0.00</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Today</span>
+                    <span class="stat-number" id="todayAmount">0.00</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Entries</span>
+                    <span class="stat-number" id="entriesCount">0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- add expense section -->
+            <div class="card">
+                <div class="card-header">
+                    <span>➕</span> Add new expense
+                </div>
+                <div class="card-body">
+                    <div class="input-field">
+                        <label>Description</label>
+                        <input type="text" id="descInput" placeholder="e.g., Coffee, Uber, Groceries">
+                    </div>
+                    <div class="input-field">
+                        <label>Amount (₹ / $)</label>
+                        <input type="number" id="amountInput" placeholder="0.00" step="any">
+                    </div>
+                    <div class="input-field">
+                        <label>Date</label>
+                        <input type="date" id="dateInput">
+                    </div>
+                    <div class="input-field">
+                        <label>Category</label>
+                        <select id="categorySelect">
+                            <option value="food">🍕 Food & Dining</option>
+                            <option value="transport">🚖 Transport</option>
+                            <option value="entertainment">🎬 Entertainment</option>
+                            <option value="bills">⚡ Bills & Utilities</option>
+                            <option value="shopping">🛍️ Shopping</option>
+                            <option value="other">📌 Other</option>
+                        </select>
+                    </div>
+                    <button class="btn-primary" id="addBtn">+ Add Expense</button>
+                    <button class="btn-secondary btn-danger" id="clearAllBtn">🗑️ Clear all data</button>
+                </div>
+            </div>
+
+            <!-- expense list with filters -->
+            <div class="card">
+                <div class="card-header">
+                    <span>📋</span> Expense history
+                </div>
+                <div class="card-body">
+                    <div class="filter-bar">
+                        <select id="filterCategory" class="filter-select">
+                            <option value="ALL">All categories</option>
+                            <option value="food">🍕 Food</option>
+                            <option value="transport">🚖 Transport</option>
+                            <option value="entertainment">🎬 Entertainment</option>
+                            <option value="bills">⚡ Bills</option>
+                            <option value="shopping">🛍️ Shopping</option>
+                            <option value="other">📌 Other</option>
+                        </select>
+                        <input type="date" id="filterDateInput" class="filter-date" placeholder="Filter by date">
+                        <button id="resetFilterBtn" class="reset-btn">Reset</button>
+                    </div>
+                    <div id="expenseList" class="expense-list">
+                        <div class="empty-state">✨ No expenses added yet. Start tracking!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>Data stays in your browser (localStorage) — secure & private. ⚡</footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
